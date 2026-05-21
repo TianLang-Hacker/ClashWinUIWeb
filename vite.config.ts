@@ -19,7 +19,7 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
   ],
-  base: '/ClashWinUI/',
+  base: '/ClashWinUIWeb/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
