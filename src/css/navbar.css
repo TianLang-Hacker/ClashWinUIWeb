@@ -1,0 +1,292 @@
+:root {
+  color-scheme: light;
+  --app-page-background:
+    radial-gradient(circle at top left, rgba(0, 120, 212, 0.12), transparent 36%),
+    #f5f5f5;
+  --app-text-color: #242424;
+  --app-card-background: rgba(255, 255, 255, 0.76);
+  --app-card-border: rgba(0, 0, 0, 0.08);
+  --navbar-background: rgba(255, 255, 255, 0.64);
+  --navbar-border: rgba(0, 0, 0, 0.1);
+  --navbar-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --navbar-link-color: #242424;
+  --navbar-link-hover: rgba(0, 120, 212, 0.12);
+  --navbar-menu-background: rgba(255, 255, 255, 0.78);
+  --navbar-menu-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --app-page-background:
+    radial-gradient(circle at top left, rgba(0, 120, 212, 0.25), transparent 40%),
+    #1b1b1b;
+  --app-text-color: #f5f5f5;
+  --app-card-background: rgba(255, 255, 255, 0.08);
+  --app-card-border: rgba(255, 255, 255, 0.12);
+  --navbar-background: rgba(32, 32, 32, 0.68);
+  --navbar-border: rgba(255, 255, 255, 0.12);
+  --navbar-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
+  --navbar-link-color: #f5f5f5;
+  --navbar-link-hover: rgba(255, 255, 255, 0.1);
+  --navbar-menu-background: rgba(32, 32, 32, 0.78);
+  --navbar-menu-shadow: 0 16px 44px rgba(0, 0, 0, 0.36);
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--app-page-background);
+  color: var(--app-text-color);
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+.app-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--navbar-border);
+  background: var(--navbar-background);
+  box-shadow: var(--navbar-shadow);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.app-navbar__inner {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 32px;
+}
+
+.app-navbar__brand {
+  flex: 0 0 auto;
+  color: var(--navbar-link-color);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-navbar__actions {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.app-navbar__link {
+  box-sizing: border-box;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 6px;
+  color: var(--navbar-link-color);
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-navbar__link::part(control) {
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--navbar-link-color);
+  box-shadow: none;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.app-navbar__link::part(content) {
+  color: var(--navbar-link-color);
+}
+
+.app-navbar__link:hover::part(control) {
+  background: var(--navbar-link-hover);
+  color: var(--navbar-link-color);
+}
+
+.app-navbar__link:hover::part(content) {
+  color: var(--navbar-link-color);
+}
+
+.app-navbar__icon-button,
+.app-navbar__language-trigger {
+  box-sizing: border-box;
+  height: 34px;
+  border: 1px solid var(--navbar-border);
+  background: var(--navbar-link-hover);
+  color: var(--navbar-link-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.app-navbar__icon-button:hover,
+.app-navbar__language-trigger:hover {
+  background: rgba(0, 120, 212, 0.18);
+}
+
+.app-navbar__icon-button {
+  width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.app-navbar__theme-toggle {
+  flex: 0 0 auto;
+  margin-left: 4px;
+}
+
+.app-navbar__icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex: 0 0 auto;
+  background: currentColor;
+  mask: var(--navbar-icon-url) center / contain no-repeat;
+  -webkit-mask: var(--navbar-icon-url) center / contain no-repeat;
+}
+
+.app-navbar__icon--small {
+  width: 16px;
+  height: 16px;
+}
+
+.app-navbar__language {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.app-navbar__language-trigger {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-radius: 6px;
+}
+
+.app-navbar__language-trigger[aria-expanded='true'] {
+  background: var(--navbar-link-hover);
+}
+
+.app-navbar__language-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  box-sizing: border-box;
+  min-width: 220px;
+  padding: 6px;
+  border: 1px solid var(--navbar-border);
+  border-radius: 8px;
+  background: var(--navbar-menu-background);
+  box-shadow: var(--navbar-menu-shadow);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.app-navbar__language-option {
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--navbar-link-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+}
+
+.app-navbar__language-option:hover,
+.app-navbar__language-option--active {
+  background: var(--navbar-link-hover);
+}
+
+.app-navbar__language-check {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex: 0 0 auto;
+  opacity: 0;
+  background: currentColor;
+  mask: var(--navbar-icon-url) center / contain no-repeat;
+  -webkit-mask: var(--navbar-icon-url) center / contain no-repeat;
+}
+
+.app-navbar__language-option--active .app-navbar__language-check {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .app-navbar__inner {
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .app-navbar__brand {
+    max-width: 92px;
+    overflow: hidden;
+    font-size: 15px;
+    text-overflow: ellipsis;
+  }
+
+  .app-navbar__actions {
+    gap: 0;
+  }
+
+  .app-navbar__link {
+    padding: 0;
+    font-size: 13px;
+  }
+
+  .app-navbar__link::part(control) {
+    padding: 0 6px;
+    font-size: 13px;
+  }
+
+  .app-navbar__theme-toggle {
+    width: 34px;
+    margin-left: 2px;
+  }
+
+  .app-navbar__language-trigger {
+    gap: 4px;
+    padding: 0 6px;
+    font-size: 13px;
+  }
+
+  .app-navbar__language-menu {
+    min-width: 204px;
+  }
+}
