@@ -5,7 +5,7 @@ import DocsView from '@/view/DocsView.vue'
 import Homeview from '@/view/Homeview.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/ClashWinUIWeb'),
   routes: [
     {
       path: '/',
