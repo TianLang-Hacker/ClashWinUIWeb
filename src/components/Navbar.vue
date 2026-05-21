@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 <template>
   <header class="app-navbar">
     <nav class="app-navbar__inner" aria-label="Primary">
-      <a class="app-navbar__brand" href="/">ClashWinUI</a>
+      <a class="app-navbar__brand" href="/ClashWinUIWeb/">ClashWinUI</a>
 
       <div class="app-navbar__actions">
         <fluent-anchor
