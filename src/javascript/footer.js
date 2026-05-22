@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.BASE_URL
+
 export const footerBrand = {
   name: 'ClashWinUI',
   description: 'TianLang Hacker',
@@ -27,7 +29,7 @@ export const footerSections = [
     links: [
       {
         label: 'Documentation',
-        href: '/docs',
+        href: `${BASE_URL}docs`
       },
       {
         label: 'Github issues',

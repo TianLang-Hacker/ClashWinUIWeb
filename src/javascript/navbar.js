@@ -13,6 +13,8 @@ import {
 const LOCALE_STORAGE_KEY = 'clash-win-ui-locale'
 const supportedLocales = new Set(languageOptions.map((language) => language.locale))
 
+const BASE_URL = import.meta.env.BASE_URL
+
 export const currentLocale = ref(DEFAULT_LOCALE)
 export const isLanguageMenuOpen = ref(false)
 
@@ -33,11 +35,11 @@ export const navbarText = computed(() => (
 export const navItems = computed(() => [
   {
     label: navbarText.value.blog,
-    href: '/blog',
+    href: `${BASE_URL}blog`
   },
   {
     label: navbarText.value.docs,
-    href: '/docs',
+    href: `${BASE_URL}docs`
   },
 ])
 
